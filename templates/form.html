@@ -1,48 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Cadastro de Missão</title>
 
     <!-- Link para o CSS externo -->
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
     <!-- Container centralizado -->
     <div class="container">
-        <h1>Missões Semanais e Ajuda</h1>
+      <h1>Missões Semanais e Ajuda</h1>
 
-        <!-- Formulário de envio -->
-        <form method="post" action="/enviar">
+      <!-- Formulário de envio -->
+      <form method="post" action="/enviar">
+        <!-- Campo: Nick no jogo -->
+        <label for="nick">Nick no jogo:</label>
+        <input type="text" id="nick" name="nick" required />
 
-            <!-- Campo: Nick no jogo -->
-            <label for="nick">Nick no jogo:</label>
-            <input type="text" id="nick" name="nick" required>
+        <!-- Campo: Pode ajudar? -->
+        <label for="precisa_ajuda">Consegue ajudar a fazer a Dungeon?</label>
+        <select id="precisa_ajuda" name="precisa_ajuda" required>
+          <option value="false">Sim</option>
+          <option value="true">Não</option>
+        </select>
 
-            <!-- Campo: Pode ajudar? -->
-            <label for="precisa_ajuda">Consegue ajudar a fazer a Dungeon?</label>
-            <select id="precisa_ajuda" name="precisa_ajuda" required>
-                <option value="true">Sim</option>
-                <option value="false">Não</option>
-            </select>
+        <!-- Campo: Dia disponível -->
+        <label for="dia_semana">Dia disponível:</label>
+        <input type="text" id="dia_semana" name="dia_semana" required />
 
-            <!-- Campo: Dia disponível -->
-            <label for="dia_semana">Dia disponível:</label>
-            <input type="text" id="dia_semana" name="dia_semana" required>
+        <!-- Campo: Horário disponível -->
+        <label for="horario">Horário disponível:</label>
+        <input type="text" id="horario" name="horario" required />
 
-            <!-- Campo: Horário disponível -->
-            <label for="horario">Horário disponível:</label>
-            <input type="text" id="horario" name="horario" required>
+        <!-- Campo: Descrição da missão -->
+        <label for="descricao">O que você precisa fazer?</label>
+        <textarea id="descricao" name="descricao" required></textarea>
 
-            <!-- Campo: Descrição da missão -->
-            <label for="descricao">O que você precisa fazer?</label>
-            <textarea id="descricao" name="descricao" required></textarea>
-
-            <!-- Botão de envio -->
-            <button type="submit">Enviar</button>
-        </form>
+        <!-- Botão de envio -->
+        <button type="submit">Enviar</button>
+      </form>
     </div>
-
-</body>
+  </body>
 </html>

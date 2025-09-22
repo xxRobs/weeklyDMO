@@ -11,3 +11,8 @@ class PedidoAjuda(SQLModel, table=True):
     descricao: str
     criado_em: datetime = Field(default_factory=datetime.utcnow)
     finalizado: bool = Field(default=False)
+
+class Participante(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    nick: str
+    pedido_id: int = Field(foreign_key="pedidoajuda.id")

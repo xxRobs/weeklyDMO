@@ -1,44 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Lista de Pedidos</title>
 
     <!-- Estilos -->
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
     <!-- Container central -->
     <div class="container">
-        <h1>Pedidos</h1>
+      <h1>Pedidos</h1>
 
-        <!-- Verifica se há pedidos -->
-        {% if pedidos %}
-            <ul>
-                <!-- Loop pelos pedidos -->
-                {% for pedido in pedidos %}
-                    <li>
-                        <!-- Informações do jogador e descrição -->
-                        <strong>{{ pedido.nick }}</strong> — {{ pedido.descricao }}<br>
-                        <em>{{ pedido.dia_semana }} às {{ pedido.horario }}</em><br>
+      <!-- Verifica se há pedidos -->
+      {% for pedido in pedidos %}
+      <li>
+        <strong>{{ pedido.nick }}</strong> — {{ pedido.descricao }}<br />
+        <em>{{ pedido.dia_semana }} às {{ pedido.horario }}</em><br />
 
-                        <!-- Botão para finalizar -->
-                        <form method="post" action="/finalizar/{{ pedido.id }}">
-                            <input type="password" name="senha" placeholder="Senha" required>
-                            <button type="submit">Finalizar</button>
-                        </form>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <!-- Caso não existam pedidos -->
-            <p><strong>Nenhum pedido no momento.</strong></p>
+        {% if not pedido or pedido.precisa_ajuda != 1 %}
+        <!-- Modo PT: pode adicionar membros -->
+        <p><strong>Membros da PT:</strong></p>
+        <ul>
+          {% for p in participantes_por_pedido[pedido.id] %}
+          <li style="margin-left: 15px">🔹 {{ p.nick }}</li>
+          {% endfor %}
+        </ul>
+
+        {% if participantes_por_pedido[pedido.id]|length < 3 %}
+        <form method="post" action="/participar/{{ pedido.id }}">
+          <input type="text" name="nick" placeholder="Seu nick" required />
+          <button type="submit">Entrar na PT</button>
+        </form>
         {% endif %}
 
-        <!-- Link para voltar ao formulário -->
-        <a href="/">Voltar</a>
-    </div>
+        <!-- Botão para finalizar PT -->
+        <form method="post" action="/finalizar/{{ pedido.id }}">
+          <input type="password" name="senha" placeholder="Senha" required />
+          <button type="submit">Finalizar</button>
+        </form>
 
-</body>
+        {% else %}
+        <!-- Modo ajuda: apenas finalizar -->
+        <form method="post" action="/finalizar/{{ pedido.id }}">
+          <input type="password" name="senha" placeholder="Senha" required />
+          <button type="submit">Finalizar</button>
+        </form>
+        {% endif %}
+      </li>
+      {% endfor %}
+
+      <!-- Link para voltar ao formulário -->
+      <a href="/">Voltar</a>
+    </div>
+  </body>
 </html>
