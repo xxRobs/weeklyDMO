@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Pedidos</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- Container central -->
+    <div class="container">
+        <h1>Pedidos</h1>
+
+        <!-- Verifica se há pedidos -->
+        {% if pedidos %}
+            <ul>
+                <!-- Loop pelos pedidos -->
+                {% for pedido in pedidos %}
+                    <li>
+                        <!-- Informações do jogador e descrição -->
+                        <strong>{{ pedido.nick }}</strong> — {{ pedido.descricao }}<br>
+                        <em>{{ pedido.dia_semana }} às {{ pedido.horario }}</em><br>
+
+                        <!-- Botão para finalizar -->
+                        <form method="post" action="/finalizar/{{ pedido.id }}">
+                            <button type="submit">Finalizado</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <!-- Caso não existam pedidos -->
+            <p><strong>Nenhum pedido no momento.</strong></p>
+        {% endif %}
+
+        <!-- Link para voltar ao formulário -->
+        <a href="/">Voltar</a>
+    </div>
+
+</body>
+</html>

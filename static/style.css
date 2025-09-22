@@ -1,0 +1,131 @@
+/* Reset de espaçamento e caixa */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Altura total da página */
+html, body {
+    height: 100%;
+}
+
+/* Estilização geral do corpo */
+body {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Container principal centralizado */
+.container {
+    background-color: #2b2b2b;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Título da página */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #FFD700;
+    font-size: 26px;
+}
+
+/* Centralizar paragráfos */
+p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #FFD700;
+    font-size: 26px;
+ 
+}
+
+/* Labels dos campos */
+label {
+    display: block;
+    margin-top: 20px;
+    font-weight: 500;
+    color: #e0e0e0;
+}
+
+/* Inputs, selects e textarea */
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: none;
+    border-radius: 6px;
+    background-color: #3c3c3c;
+    color: #fff;
+    font-size: 15px;
+}
+
+/* Textarea específico */
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Botões padrão */
+button {
+    margin-top: 30px;
+    width: 100%;
+    padding: 12px;
+    background-color: #007BFF;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover do botão */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Links gerais */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #FFD700;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Lista de pedidos */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Cada item da lista */
+li {
+    background-color: #333;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+}
+
+/* Formulário dentro do item da lista */
+li form {
+    margin-top: 15px;
+}
