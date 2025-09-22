@@ -1,131 +1,129 @@
-/* Reset de espaçamento e caixa */
+/* RESET BÁSICO */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Altura total da página */
-html, body {
-    height: 100%;
-}
-
-/* Estilização geral do corpo */
+html,
 body {
-    background-color: #1e1e1e;
-    color: #f0f0f0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+  height: 100%;
 }
 
-/* Container principal centralizado */
+body {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* CONTAINER CENTRALIZADO E RESPONSIVO */
 .container {
-    background-color: #2b2b2b;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    width: 100%;
-    max-width: 600px;
-    max-height: 90vh;
-    overflow-y: auto;
+  background-color: #2b2b2b;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
-/* Título da página */
+/* TÍTULOS */
 h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #FFD700;
-    font-size: 26px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #ffd700;
+  font-size: 26px;
 }
 
-/* Centralizar paragráfos */
-p {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #FFD700;
-    font-size: 26px;
- 
-}
-
-/* Labels dos campos */
+/* LABELS */
 label {
-    display: block;
-    margin-top: 20px;
-    font-weight: 500;
-    color: #e0e0e0;
+  display: block;
+  margin-top: 20px;
+  font-weight: 500;
+  color: #e0e0e0;
 }
 
-/* Inputs, selects e textarea */
+/* INPUTS, TEXTAREA, SELECT, PASSWORD */
 input[type="text"],
+input[type="password"],
 textarea,
 select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 6px;
-    border: none;
-    border-radius: 6px;
-    background-color: #3c3c3c;
-    color: #fff;
-    font-size: 15px;
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 6px;
+  background-color: #3c3c3c;
+  color: #fff;
+  font-size: 15px;
 }
 
-/* Textarea específico */
+/* PLACEHOLDER DO CAMPO DE SENHA */
+input[type="password"]::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* TEXTAREA */
 textarea {
-    resize: vertical;
-    min-height: 80px;
+  resize: vertical;
+  min-height: 80px;
 }
 
-/* Botões padrão */
+/* BOTÕES */
 button {
-    margin-top: 30px;
-    width: 100%;
-    padding: 12px;
-    background-color: #007BFF;
-    color: #fff;
-    font-weight: bold;
-    font-size: 16px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  margin-top: 30px;
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* Hover do botão */
 button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
-/* Links gerais */
+/* LINKS */
 a {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    color: #FFD700;
-    text-decoration: none;
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: #ffd700;
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-/* Lista de pedidos */
+/* LISTA DE PEDIDOS */
 ul {
-    list-style: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
 
-/* Cada item da lista */
 li {
-    background-color: #333;
-    padding: 20px;
-    margin-bottom: 25px;
-    border-radius: 10px;
+  background-color: #333;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 10px;
 }
 
-/* Formulário dentro do item da lista */
+/* FORMULÁRIO DENTRO DE CADA PEDIDO */
 li form {
-    margin-top: 15px;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

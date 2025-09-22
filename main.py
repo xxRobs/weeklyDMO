@@ -7,6 +7,10 @@ from sqlmodel import Session, select
 from models import PedidoAjuda
 from database import engine, criar_banco
 
+
+# Senha para finalização
+FINALIZACAO_SENHA = "dmomaster"  
+
 # Inicializa a aplicação FastAPI
 app = FastAPI()
 
@@ -60,7 +64,10 @@ def listar_pedidos(request: Request):
 
 # Rota para finalizar um pedido
 @app.post("/finalizar/{pedido_id}")
-def finalizar_pedido(pedido_id: int):
+def finalizar_pedido(pedido_id: int, senha: str = Form(...)):
+    if senha != FINALIZACAO_SENHA:
+        return HTMLResponse("<h2>Senha incorreta! A finalização foi negada.</h2>", status_code=403)
+
     with Session(engine) as session:
         pedido = session.get(PedidoAjuda, pedido_id)
         if pedido:

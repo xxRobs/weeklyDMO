@@ -25,7 +25,8 @@
 
                         <!-- Botão para finalizar -->
                         <form method="post" action="/finalizar/{{ pedido.id }}">
-                            <button type="submit">Finalizado</button>
+                            <input type="password" name="senha" placeholder="Senha" required>
+                            <button type="submit">Finalizar</button>
                         </form>
                     </li>
                 {% endfor %}
