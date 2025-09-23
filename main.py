@@ -113,6 +113,13 @@ def finalizar_pedido(pedido_id: int, senha: str = Form(...)):
 
     return RedirectResponse(url="/lista", status_code=303)
 
+# Ver as queries
+@app.get("/debug")
+def debug():
+    with Session(engine) as session:
+        pedidos = session.exec(select(PedidoAjuda)).all()
+        return pedidos
+
 # Para rodar localmente
 if __name__ == "__main__":
     import uvicorn
